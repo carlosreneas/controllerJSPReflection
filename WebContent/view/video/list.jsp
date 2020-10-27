@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Aplicación Gestión de Usuarios</title>
+<title>Aplicación Gestión de Videos</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -13,11 +13,11 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: tomato">
 			<div>
-                <a href="#" class="navbar-brand"> Gestión de Usuarios </a>
+                <a href="#" class="navbar-brand"> Gestión de Videos </a>
             </div>
             
             <ul class="navbar-nav">
-            	<li><a href="<%=request.getContextPath()%>/usuario/list" class="nav-link">Usuarios</a></li>
+            	<li><a href="<%=request.getContextPath()%>/video/list" class="nav-link">Videos</a></li>
             </ul>
 		
 		</nav>
@@ -28,11 +28,11 @@
                 <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
 
                 <div class="container">
-                    <h3 class="text-center">Listado de Usuarios</h3>
+                    <h3 class="text-center">Listado de Videos</h3>
                     <hr>
                     <div class="container text-left">
 
-                        <a href="<%=request.getContextPath()%>/usuario/cnew" class="btn btn-success">Agregar Nuevo Usuario</a>
+                        <a href="<%=request.getContextPath()%>/video/cnew" class="btn btn-success">Agregar Nuevo Video</a>
                     </div>
                     <br>
                     <table class="table table-bordered">
@@ -40,29 +40,29 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Email</th>
-                                <th>Pais</th>
+                                <th>Descripcion</th>
+                                <th>Enlace</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!--   for (Todo todo: todos) {  -->
-                            <c:forEach var="usuario" items="${listUsuarios}">
+                            <c:forEach var="video" items="${list}">
 
                                 <tr>
                                     <td>
-                                        <c:out value="${usuario.id}" />
+                                        <c:out value="${video.id}" />
                                     </td>
                                     <td>
-                                        <c:out value="${usuario.nombre}" />
+                                        <c:out value="${video.nombre}" />
                                     </td>
                                     <td>
-                                        <c:out value="${usuario.email}" />
+                                        <c:out value="${video.descripcion}" />
                                     </td>
                                     <td>
-                                        <c:out value="${usuario.pais}" />
+                                        <c:out value="${video.enlace}" />
                                     </td>
-                                    <td><a href="edit?id=<c:out value='${usuario.id}' />">Editar</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${usuario.id}' />">Eliminar</a></td>
+                                    <td><a href="edit?id=<c:out value='${video.id}' />">Editar</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${video.id}' />">Eliminar</a></td>
                                 </tr>
                             </c:forEach>
                             <!-- } -->
